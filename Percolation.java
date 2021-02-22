@@ -61,7 +61,7 @@ public class Percolation
         }
         int rootA = findRoot(row, col);
         int rootB = findRoot(row2, col2);
-        if (rootA == rootB)
+        if (rootA ==  rootB)
         {
             return;               // if both elements have same root nothing need to do
         }
@@ -70,7 +70,7 @@ public class Percolation
             int j = rootB % size;
             int i = (rootB - j) / size;
             grid[i][j] = TOP;
-            if (i == size - 1)
+            if (i == size- 1)
             {
                 percolate = true;                           // PERCOLATION  CONDITION
             }
@@ -86,11 +86,11 @@ public class Percolation
                 percolate = true;                         // PERCOLATION  CONDITION
             }
         }
-        else if (rootA < rootB) {
+        else if (rootA > rootB) {
             // position of rootB i.e (i,j)
             int j = rootB % size;
             int i = (rootB - j) / size;
-            //  rootB will point toward the site (row,col) whose root value is less
+            //  rootB will point toward the site (row,col) whose root value is greater
 
             grid[i][j] = (row*size + col);
         }
@@ -133,7 +133,6 @@ public class Percolation
 
         connect(row, col, row, leftCol);  // connect to left site
         connect(row, col, row, rightCol); // connect to right site
-
     }
 
     public boolean isOpen(int row, int col) {
@@ -165,7 +164,7 @@ public class Percolation
     }
 
     public int numberOfOpenSites() {
-        return openSites-1;
+        return openSites;
     }
 
     public boolean percolates() {
